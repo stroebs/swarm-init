@@ -20,4 +20,4 @@ You can use the automated Docker Hub build associated with this repository:
 You can build the image yourself:
 `docker build -t swarm-init .`
 
-NOTE: This script still relies on a metadata service avialable at http://$MANAGER_IP:9024 - which I am still busy writing.
+NOTE: This script still relies on a metadata service avialable at http://$MANAGER_IP:9024 - which I am still busy writing, contained at https://github.com/stroebs/swarm-meta
