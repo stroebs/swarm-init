@@ -12,7 +12,7 @@ You can use the automated Docker Hub build associated with this repository:
 Example:
 ```
 docker run \
-  --restart=no -d
+  --restart=no -d \
   --log-driver=json-file \
   -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
