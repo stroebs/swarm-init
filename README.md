@@ -9,7 +9,22 @@ The Dockerfile is quite simple. I could've made it smaller using a multi-stage b
 ## Usage
 You can use the automated Docker Hub build associated with this repository:
 
-`docker run --log-driver=json-file --restart=no -d -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e NODE_IP=$NODE_IP -e DYNAMODB_TABLE=$DYNAMODB_TABLE -e NODE_TYPE=$NODE_TYPE -e REGION=$AWS_REGION -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log stroebs/swarm-init:18.06.1-ce`
+Example:
+```
+docker run \
+  --restart=no -d
+  --log-driver=json-file \
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e NODE_IP=$NODE_IP \
+  -e DYNAMODB_TABLE=$DYNAMODB_TABLE \
+  -e NODE_TYPE=$NODE_TYPE \
+  -e REGION=$AWS_REGION \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /var/log:/var/log \
+  stroebs/swarm-init:18.06.1-ce
+```
+
 - `NODE_IP`: Specified manually, using whichever calling script is setting this up. There is no metadata service in the CaaS I am using.
 - `NODE_TYPE`: Either 'manager' or 'worker'
 - `DYNAMODB_TABLE`: The Dynamo DB table name you will use to store your primary manager information
